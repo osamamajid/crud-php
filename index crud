@@ -1,0 +1,409 @@
+
+<?php
+include 'coninsert.php';
+
+ 
+
+?>
+
+
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>crud </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<script >
+	
+	$(document).ready(function (){
+
+		$("button").click(function(){
+			$(#tables ).load("show.php"{
+
+			});
+		});
+	});
+
+
+	</script>
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand/logo -->
+  <a class="navbar-brand" href="#">
+    <img src="logo.jpg" alt="logo" style="width:40px;">
+  </a>
+  
+  <!-- Links -->
+  <ul class="navbar-nav">
+    
+    <li class="nav-item">
+      <a class="nav-link" <button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+   ADD
+  </button>
+ </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link 3</a>
+    </li>
+<div class="chip">
+
+ <li class="nav-item dropdown">
+ 	<img src="100.jpg" alt="Person" width="50" height="50" class="rounded-circle" >
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+      <i class="fa fa-cog" aria-hidden="true"> </i>
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="profiel.html">Profiel</a>
+        <a class="dropdown-item" href="#">logout</a>
+        <a class="dropdown-item" href="#">msg</a>
+      </div>
+  </div>
+    </li>
+
+
+
+  </ul>
+</nav>
+
+	<DIV>
+ 
+  <form action="tester.php" name="form1" method="POST">
+  	
+  <!-- The Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">User info</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+<div class="container">
+	<div class="col-lg-8">
+  <h2>User info </h2>
+    <div class="form-group">
+      <label for="username">user name:</label>
+      <input type="text" class="form-control"   placeholder="Enter username" name="username">
+    </div>
+
+    <div class="form-group">
+      <label for="email">user email:</label>
+      <input type="email" class="form-control"   placeholder="Enter email" name="email">
+    </div>
+    <div class="form-group">
+      <label for="city">city:</label>
+      <input type="text" class="form-control"   placeholder="Enter city" name="city">
+    </div>
+     <div class="form-group">
+      <label for="phone">phone:</label>
+      <input type="number" class="form-control"   placeholder="Enter phone" name="phone">
+    </div>
+    </div>
+        
+ <div class="modal-body">
+         </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+        <button type="submit"  name="submit" class="btn btn-success">insert </butto>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+</div>
+</form>
+</DIV>
+
+ 
+//  <!------------------------------------------>
+//<?php
+  include 'updata.php';
+ 
+ 
+?>
+<form action="tester.php" name="form2" method="post">
+     
+
+<div class="container">
+   <div class="col-lg-4">
+ 
+  <!-- The Modal -->
+  <div class="modal" id="myModal2">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">EDIT</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+           
+          
+
+          <div class="form-group"> 
+          <label for="username">user name:</label>
+      <input type="text" class="form-control"   placeholder="Enter username" name="username" value= "<?php echo  $username;?>"  />
+    </div>
+
+    <div class="form-group">
+      <label for="email">user email:</label>
+      <input type="email" class="form-control"   placeholder="Enter email" name="email" value="<?php echo $arrdata['user_email'];?>" />
+    </div>
+    <div class="form-group">
+      <label for="city">city:</label>
+      <input type="text" class="form-control"   placeholder="Enter city" name="city" value="<?php echo $arrdata['city'];?>   >
+    </div>
+     <div class="form-group">
+      <label for="phone">phone:</label>
+      <input type="number" class="form-control"   placeholder="Enter phone" name="phone" value="<?php echo $arrdata['phone']; ?>" / >
+    </div>
+       
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-danger" data-dismiss="modal" name="updata">updata  <?php echo $id ;?></button>
+        </div>
+        </div>
+         </div>
+      </div>
+    </div>
+  </div>
+  <
+</div>
+</form>
+ </div>
+
+<!------------------------------------------>
+   <div align="container">  
+                     <input type="text" name="search" id="search" class="form-control mr-sm-2" />  
+                </div>  
+ 
+
+<?php
+
+
+// Create connection
+$conn = new mysqli($servername, $username, $password ,$db);
+
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+//echo "Connected successfully";
+$conn->set_charset("UTF8");
+
+ 
+
+
+$sql = "SELECT * FROM `users` WHERE 1";
+$result = mysqli_query($conn, $sql);
+
+?>
+
+
+	<table class="table table-hover" id="myTable" >
+
+<div class="form-row">
+    <div class="col">
+  
+    <thead>
+      <tr class="header">
+      	 
+      	<th>id</th>
+        <th>username</th>
+        <th>email</th>
+        <th>city</th>
+        <th>phone</th>
+        <th>action </th>
+
+
+      </tr>
+    </thead><?php
+if (mysqli_num_rows($result) > 0) {
+  // output data of each row
+  while($row = mysqli_fetch_assoc($result)) {
+  	?>
+
+    <tbody>
+
+
+    	<tr>
+						 
+                      
+
+
+
+
+<td><?php echo $row["id"]; ?></td>
+<td><?php echo $row["username"]; ?></td>
+<td><?php echo $row["user_email"]; ?></td>
+<td><?php echo $row["user_city"]; ?></td>
+<td><?php echo $row["user_phone"]; ?></td>
+
+</td>
+                 <td>
+                 	 <script>
+$(document).ready(function(){
+  $("#myview").click(function(){
+    $('.toast').toast('show');
+  });
+});
+function add(){
+    var node = document.createElement("  tbody  tr td");
+    var len = document.querySelectorAll("tbody tr td") 
+    var textnode = document.createTextNode(len.length+1);
+    node.appendChild(textnode);
+    document.getElementById("myList").appendChild(node);
+}
+
+function delete1(){
+    var len = document.querySelectorAll("  tbody tr td");
+    if(len.length>0){
+      len[0].parentElement.removeChild(len[len.length-1]);
+    }
+}
+  
+</script>         
+   <button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#myview"><i class="far fa-eye"></i></button>
+
+                           
+            <div id="myview" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-body">
+            <img src="C:\xampp\htdocs\decu.jpg" class="img-responsive" width="55%">
+        </div>
+    </div>
+  </div>
+</div>
+
+  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal2"> <i class="fas fa-edit"></i>   </button>
+
+    <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#img" >        
+               <i class="fas fa-images"></i></button>
+ 
+            </td>
+ 
+
+</tr>
+
+ 
+    </tbody>
+    <script>
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
+   <?php
+}
+  echo"<table>";
+
+
+}
+ else {
+  echo "0 results";
+};
+ ?>
+  </table>
+   <ul class="pagination"><li class="paginate_button page-item previous disabled" id="datatables-clients_previous"><a href="#" aria-controls="datatables-clients" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li><li class="paginate_button page-item active"><a href="#" aria-controls="datatables-clients" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item "><a href="#" aria-controls="datatables-clients" data-dt-idx="2" tabindex="0" class="page-link">2</a></li><li class="paginate_button page-item next" id="datatables-clients_next"><a href="#" aria-controls="datatables-clients" data-dt-idx="3" tabindex="0" class="page-link">Next</a></li></ul>
+    
+	</div>
+	 
+
+ <script>  
+      $(document).ready(function(){  
+           $('#search').keyup(function(){  
+                search_table($(this).val());  
+           });  
+           function search_table(value){  
+                $('#myTable tr').each(function(){  
+                     var found = 'false';  
+                     $(this).each(function(){  
+                          if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)  
+                          {  
+                               found = 'true';  
+                          }  
+                     });  
+                     if(found == 'true')  
+                     {  
+                          $(this).show();  
+                     }  
+                     else  
+                     {  
+                          $(this).hide();  
+                     }  
+                });  
+           }  
+      });  
+ </script>  
+ 
+
+  <!-- The Modal -->
+  <div class="modal" id="img">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Modal Heading</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+       
+        <!-- Modal body -->
+        <div class="modal-body">
+          <input type="file" id="myFile" name="filename">
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">upload</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+</div>
+<?php
+ 
+$target_dir = "uploads/";
+$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$uploadOk = 1;
+$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+// Check if image file is a actual image or fake image
+if(isset($_POST["submit"])) {
+  $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+  if($check !== false) {
+    echo "File is an image - " . $check["mime"] . ".";
+    $uploadOk = 1;
+  } else {
+    echo "File is not an image.";
+    $uploadOk = 0;
+  }
+}
+
+ ?>
+
+</body>
+</html>
