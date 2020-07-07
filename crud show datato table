@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<div id="tables">
+<?php
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$db ="crud";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password ,$db);
+
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+//echo "Connected successfully";
+$conn->set_charset("UTF8");
+
+ 
+$user_name=$_POST['username'];
+ $useremail=$_POST['email'];
+ $usercity=$_POST['city'];
+   $userphone=$_POST['phone'];
+   $usercheck=$_POST['checkbox'];
+
+
+$sql = "SELECT * FROM `users` WHERE 1";
+$result = mysqli_query($conn, $sql);
+
+
+if (mysqli_num_rows($result) > 0) {
+  // output data of each row
+  while($row = mysqli_fetch_assoc($result)) {
+
+    echo "<tr><td>"   . $row["id"]. " </td><td> " . $row["username"]. "</td><td> " . $row["user_email"]. " </td><td>". $row["user_city"]." </td><td>" . $row["user_phone"]."<  </td></tr>";
+
+  }
+  echo"<table>";
+
+
+}
+ else {
+  echo "0 results";
+}
+ mysqli_close($conn);
+ ?>
+</div>
+
+
+</body>
+</html>
