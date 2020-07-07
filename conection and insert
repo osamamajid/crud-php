@@ -1,0 +1,47 @@
+
+<?php
+ 
+ ob_start();
+$servername = "localhost";
+$username = "root";
+$password = "";
+$db ="crud";
+// Create connection
+$conn = new mysqli($servername, $username, $password ,$db);
+
+// Check connection
+// Check connection
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
+}
+echo "Connected successfully";
+
+
+$conn->set_charset("UTF8");
+if(isset ($_POST['submit'])){
+// if(isset($_POST['submit'])) {
+$user_name=$_POST['username'];
+ $useremail=$_POST['email'];
+ $usercity=$_POST['city'];
+   $userphone=$_POST['phone'];
+
+ 
+
+	
+    
+ $sql = "INSERT INTO `users`(`id`, `username`, `user_email`, `user_city`, `user_phone`)
+VALUES (NULL,'".$user_name."' ,  '".$useremail."',  '".$usercity."' ,'".$userphone."')";
+
+if (mysqli_query($conn, $sql)) {
+  echo "New record created successfully";
+} else {
+  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}
+}
+
+ 
+
+$conn->close(); 
+	ob_end_flush();  
+
+?>
